@@ -41,7 +41,7 @@ export const Navbar = () => {
             )}
             {isAuthenticated && !isLoading && (
                 <>
-                <Button Variant="ghost" size="sm" asChild>
+                <Button variant="ghost" size="sm" asChild>
                     <Link href="/documents">
                     Enter Potion
                     </Link>
