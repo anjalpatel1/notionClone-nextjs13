@@ -23,16 +23,19 @@ interface EditorProps{
       const response = await edgestore.publicFiles.upload({file});
   
       return response.url;
-    } 
+    };
+    
+    const handleContentChange = (newEditor: BlockNoteEditor) => {
+      onChange(JSON.stringify(newEditor.topLevelBlocks, null, 2));
+    };
 
     const editor:BlockNoteEditor = useBlockNote({
 
       initialContent:initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
-      onChange:(editor) => {
-        onChange(JSON.stringify(editor.topLevelBlocks,null,2))
-      },
+      onContentChange: handleContentChange,
       uploadFile:handleUpload
     })
+
 
       if (editor.setEditable && typeof editable === 'boolean') {
         editor.setEditable(editable);
