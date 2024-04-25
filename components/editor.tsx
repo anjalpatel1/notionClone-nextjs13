@@ -27,11 +27,12 @@ interface EditorProps{
     const editor: BlockNoteEditor = useBlockNote ({
         initialContent:initialContent ? 
         JSON.parse(initialContent) as PartialBlock[] : undefined,
-        onEditorContentChange: (editor) => {
-          onChange(JSON.stringify(editor.topLevelBlocks,null,2));
-        },
         uploadFile: handleUpload
       });
+
+      editor.onChange = (newEditor) => {
+        onChange(JSON.stringify(newEditor.topLevelBlocks, null, 2));
+      };
 
       if (editor.setEditable && typeof editable === 'boolean') {
         editor.setEditable(editable);
