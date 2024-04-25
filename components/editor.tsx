@@ -6,6 +6,7 @@ import '@blocknote/core/style.css';
 import { useTheme } from "next-themes";
 
 import { useEdgeStore } from "@/lib/edgestore"
+import { useEffect } from 'react';
 
 interface EditorProps{
     onChange:(value:string) => void;
@@ -30,9 +31,15 @@ interface EditorProps{
         uploadFile: handleUpload
       });
 
-      editor.onChange = () => {
-        onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
-      };
+       // Assign onChange function with correct signature
+  editor.onChange = (callback) => {
+    callback(editor); // Pass the editor to the callback function
+  };
+
+  // When editor content changes, call the onChange prop
+  useEffect(() => {
+    onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
+  }, [editor, onChange]);
 
       if (editor.setEditable && typeof editable === 'boolean') {
         editor.setEditable(editable);
