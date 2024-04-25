@@ -13,7 +13,7 @@ interface EditorProps{
     editable?:boolean;
   };
 
-    const Editor = ({onChange,initialContent,editable}:EditorProps) => {
+    const Editor = ({ onChange,initialContent,editable}:EditorProps) => {
 
     const resolvedTheme = useTheme();
     const {edgestore} = useEdgeStore();
@@ -28,8 +28,8 @@ interface EditorProps{
         editable,
         initialContent:initialContent ? 
         JSON.parse(initialContent) as PartialBlock[] : undefined,
-        onChange: (editor) => {
-          (JSON.stringify(editor.topLevelBlocks,null,2));
+        onEditorContentChange: (editor) => {
+          onChange(JSON.stringify(editor.topLevelBlocks,null,2));
         },
         uploadFile: handleUpload
       });
