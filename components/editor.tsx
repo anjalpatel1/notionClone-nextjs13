@@ -24,7 +24,7 @@ interface EditorProps{
   
       return response.url;
     };
-    
+
     const handleContentChange = (newEditor: BlockNoteEditor) => {
       onChange(JSON.stringify(newEditor.topLevelBlocks, null, 2));
     };
@@ -32,7 +32,7 @@ interface EditorProps{
     const editor:BlockNoteEditor = useBlockNote({
 
       initialContent:initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
-      onContentChange: handleContentChange,
+      onChange: handleContentChange,
       uploadFile:handleUpload
     })
 
