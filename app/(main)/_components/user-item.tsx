@@ -50,7 +50,7 @@ export const UserItem = () => {
                     <div className="flex items-center gap-x-2">
                         <div className="rounded-md bg-secondary p-1">
                             <Avatar className="h-8 w-8">
-                                <AvatarImage src={user?.imageURL} />
+                                <AvatarImage src={user?.imageUrl} />
                             </Avatar>
                         </div>
                         <div className="space-y-1">
