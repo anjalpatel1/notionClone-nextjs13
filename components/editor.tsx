@@ -30,8 +30,8 @@ interface EditorProps{
         uploadFile: handleUpload
       });
 
-      editor.onChange = (newEditor) => {
-        onChange(JSON.stringify(newEditor.topLevelBlocks, null, 2));
+      editor.onChange = () => {
+        onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
       };
 
       if (editor.setEditable && typeof editable === 'boolean') {
