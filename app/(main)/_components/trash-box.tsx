@@ -52,7 +52,7 @@ export const TrashBox = () => {
         toast.promise(promise, {
             loading: "Deleting note...",
             success: "Note Deleted!",
-            Error: "failed to delete note :("
+            error: "failed to delete note :("
         });
 
         if (params.documentId === documentId) {
