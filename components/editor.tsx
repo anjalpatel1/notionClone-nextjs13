@@ -25,21 +25,14 @@ interface EditorProps{
       return response.url;
     } 
 
-    const editor: BlockNoteEditor = useBlockNote ({
-        initialContent:initialContent ? 
-        JSON.parse(initialContent) as PartialBlock[] : undefined,
-        uploadFile: handleUpload
-      });
+    const editor:BlockNoteEditor = useBlockNote({
 
-       // Assign onChange function with correct signature
-  editor.onChange = (callback) => {
-    callback(editor); // Pass the editor to the callback function
-  };
-
-  // When editor content changes, call the onChange prop
-  useEffect(() => {
-    onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
-  }, [editor, onChange]);
+      initialContent:initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
+      onChange:(editor) => {
+        onChange(JSON.stringify(editor.topLevelBlocks,null,2))
+      },
+      uploadFile:handleUpload
+    })
 
       if (editor.setEditable && typeof editable === 'boolean') {
         editor.setEditable(editable);
