@@ -26,7 +26,7 @@ function Editor ({onChange,initialContent,editable}:EditorProps) {
 
   const editor:BlockNoteEditor = useBlockNote({
     initialContent:initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
-    onEditorContentChange:() => {
+    onContentChange:() => {
       onChange(JSON.stringify(editor.topLevelBlocks,null,2))
     },
     uploadFile:handleUpload
