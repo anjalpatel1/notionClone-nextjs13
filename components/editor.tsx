@@ -34,9 +34,9 @@ function Editor ({onChange,initialContent,editable}:EditorProps) {
     onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
   }, [editor.topLevelBlocks, onChange]);
 
-  if (editor.setEditable && typeof editable === 'boolean') {
-    editor.setEditable(editable);
-  }
+  // if (editor.setEditable && typeof editable === 'boolean') {
+  //   editor.setEditable(editable);
+  // }
 
 
 return (
@@ -44,6 +44,6 @@ return (
       <BlockNoteView editor={editor} theme={resolvedTheme === 'dark' ? 'dark' : 'light'}/>
     </div>
   )
-};
+}
 
 export default Editor
