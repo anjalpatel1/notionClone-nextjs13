@@ -6,6 +6,7 @@ import '@blocknote/core/style.css'
 import { useTheme } from "next-themes"
 
 import { useEdgeStore } from "@/lib/edgestore"
+import { useEffect } from 'react'
 
 interface EditorProps{
   onChange:(value:string) => void
@@ -26,11 +27,12 @@ function Editor ({onChange,initialContent,editable}:EditorProps) {
 
   const editor:BlockNoteEditor = useBlockNote({
     initialContent:initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
-    onContentChange:() => {
-      onChange(JSON.stringify(editor.topLevelBlocks,null,2))
-    },
     uploadFile:handleUpload
   })
+
+  useEffect(() => {
+    onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
+  }, [editor.topLevelBlocks, onChange]);
 
   if (editor.setEditable && typeof editable === 'boolean') {
     editor.setEditable(editable);
@@ -42,6 +44,6 @@ return (
       <BlockNoteView editor={editor} theme={resolvedTheme === 'dark' ? 'dark' : 'light'}/>
     </div>
   )
-}
+};
 
 export default Editor
