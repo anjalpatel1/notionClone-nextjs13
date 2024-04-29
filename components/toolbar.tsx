@@ -3,7 +3,7 @@
 import React, { useRef, ElementRef, useState } from "react";
 import { X, Smile,ImageIcon } from "lucide-react";
 import { useMutation } from "convex/react";
-import { TextareaAutosize } from "react-textarea-autosize";
+import  TextareaAutosize  from "react-textarea-autosize";
 
 import { useCoverImage } from "@/hooks/use-cover-image"
 import { Doc } from "@/convex/_generated/dataModel";
@@ -21,7 +21,7 @@ export const Toolbar = ({
     initialData,
     preview,
 }: ToolbarProps) => {
-  const TextareaAutosize = require('react-textarea-autosize').default;
+  // const TextareaAutosize = require('react-textarea-autosize').default;
     const inputRef = useRef<ElementRef<"textarea">>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(initialData.title);
