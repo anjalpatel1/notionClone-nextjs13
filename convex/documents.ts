@@ -165,6 +165,10 @@ export const restore = mutation ({
           isArchived: false,
         });
 
+        if (child._id === documentId) {
+          continue;
+        }
+
         await recursiveRestore(child._id);
       }
     }

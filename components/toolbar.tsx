@@ -21,7 +21,7 @@ export const Toolbar = ({
     initialData,
     preview,
 }: ToolbarProps) => {
-  // const TextareaAutosize = require('react-textarea-autosize').default;
+  const TextareaAutosize = require('react-textarea-autosize').default;
     const inputRef = useRef<ElementRef<"textarea">>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(initialData.title);
