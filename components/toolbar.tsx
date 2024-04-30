@@ -129,7 +129,8 @@ export const Toolbar = ({
                  onBlur={disableInput} 
                  onKeyDown={onKeyDown} 
                  value={value}
-                 onChange={(e) => onInput(e.target.value)}
+                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => onInput(e.target.value)}
+                //  onChange={(e) => onInput(e.target.value)}
                 />
               ) : (
                 <div 
