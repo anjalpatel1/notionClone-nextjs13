@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, ElementRef, useState } from "react";
+import React, { useRef, ElementRef, useState, ChangeEvent } from "react";
 import { X, Smile,ImageIcon } from "lucide-react";
 import { useMutation } from "convex/react";
 import  TextareaAutosize  from "react-textarea-autosize";
@@ -129,7 +129,8 @@ export const Toolbar = ({
                  onBlur={disableInput} 
                  onKeyDown={onKeyDown} 
                  value={value}
-                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => onInput(e.target.value)}
+                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onInput(e.target.value)}
+
                 //  onChange={(e) => onInput(e.target.value)}
                 />
               ) : (
