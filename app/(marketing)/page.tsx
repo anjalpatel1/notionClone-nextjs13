@@ -13,7 +13,7 @@ const MarketingPage = () => {
             </div>
             <Footer />
         </div>
-    )
+    );
 };
 
 export default MarketingPage; 
