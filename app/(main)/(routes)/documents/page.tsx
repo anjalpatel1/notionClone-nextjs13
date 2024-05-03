@@ -8,6 +8,7 @@ import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import {toast} from "sonner";
 import { useRouter } from "next/navigation"
+import { Footer } from "@/app/(marketing)/_components/footer";
 
 const DocumentsPage = () => {
 
@@ -27,7 +28,7 @@ const DocumentsPage = () => {
     }
 
     return (
-        <div className="h-full w-full flex flex-col items-center justify-center space-y-48 dark:bg-[#1F1F1F]">
+        <div className="h-screen w-full flex flex-col items-center justify-center space-y-4 dark:bg-[#1F1F1F]">
             <Image 
             src="/empty.png"
             height="300"
@@ -47,12 +48,13 @@ const DocumentsPage = () => {
                     Welcome to {user?.firstName}&apos;s Potion
                 </h2>
              </div>
-             <div>
                 <Button onClick={onCreate}>
                     <PlusCircle className="h-4 w-4 mr-2" />
                     Create a note
                 </Button>
-             </div>
+                <div className="h-full w-full space-y-44 flex dark:bg-[#1F1F1F]">
+                    {/* <Footer /> */}
+                </div>
         </div>
     )
 };

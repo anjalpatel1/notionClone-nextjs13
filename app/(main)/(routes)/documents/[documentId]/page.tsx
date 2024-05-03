@@ -38,7 +38,7 @@ const DocumentIdPage = ({
        return (
        <div>
             <Cover.Skeleton />
-            <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+            <div className="md:max-w-2xl lg:max-w-4xl mx-auto w-fit">
                 <div className="space-y-4 pl-8 pt-4">
                     <Skeleton className="h-14 w-[50%]" />
                     <Skeleton className="h-14 w-[89%]" />
@@ -57,7 +57,7 @@ const DocumentIdPage = ({
     return ( 
         <div className="pb-40">
             <Cover url={document.coverImage} />
-            <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+            <div className="md:max-w-2xl lg:max-w-2xl h-screen w-fit dark-bg:[#1F1F1F]">
                 <Toolbar initialData={document} />
                 <Editor 
                 onChange={onChange}
